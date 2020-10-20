@@ -17,6 +17,11 @@
     <form method="post"  enctype="multipart/form-data">
         @csrf
         <div class="form">
+            @if($errors->has('content'))
+                <div class="error">
+                    <p>{{ $errors->first('content') }}</p>
+                </div>
+            @endif
             <div class="form-title">
                 <label for="title">タイトル</label>
                 <input class="" name="title" value="{{ old('title') }}">

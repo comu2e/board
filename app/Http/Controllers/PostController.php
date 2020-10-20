@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use App\Http\Requests\PostInputPost;
 class PostController extends Controller
 {
     public function index(){
@@ -31,7 +32,7 @@ class PostController extends Controller
         ];
         return view('detail',["post"=>$data]);
     }
-    public function addPost(Request $request){
+    public function addPost(PostInputPost $request){
         $post = new Post();
         $post->id = $request->id;
         $post->title = $request->title;
@@ -52,7 +53,7 @@ class PostController extends Controller
         return view("view_all",["posts"=>$posts]);
     }
 
-    public function editPost(Request $request)
+    public function editPost(PostInputPost $request)
     {
         $edit_article = DB::table('posts')->where('id',$request->id);
         $edit_article ->update(['content' => $request->content]);
