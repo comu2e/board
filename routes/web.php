@@ -25,8 +25,8 @@ Route::get('view_all','App\Http\Controllers\PostController@view_all')->name('vie
 Route::get('detail/{id?}','App\Http\Controllers\PostController@detailView')->name('detail_view');
 //削除ボタン
 Route::get('delete/{id}/','App\Http\Controllers\PostController@deleteSelect')->name('delete');
-
-Route::post('detail{id?}','App\Http\Controllers\PostController@editPost');
+//編集
+Route::post('detail/{id?}','App\Http\Controllers\PostController@editPost');
 
 
 Auth::routes();

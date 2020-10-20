@@ -19,7 +19,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$post["title"]}}</h5>
                 {{--        編集フォーム--}}
-                <form action=""method="POST">
+                <form method="POST">
                     @csrf
                     <textarea name="content">
                     {{$post["content"]}}

@@ -52,11 +52,12 @@ class PostController extends Controller
         return view("view_all",["posts"=>$posts]);
     }
 
-    public function editPost($request)
+    public function editPost(Request $request)
     {
         $edit_article = DB::table('posts')->where('id',$request->id);
-        $edit_article ->update(['content' => $request->contet]);
-        return view("view_all",["posts"=>$edit_article]);
+        $edit_article ->update(['content' => $request->content]);
+        $posts = Post::all();
+        return view('view_all',['posts'=>$posts]);
     }
 
 
