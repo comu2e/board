@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('','App\Http\Controllers\HomeController@index');
 
 Route::get('post','App\Http\Controllers\PostController@index')->name('post');
-//view_allアクセス時にpost?
-Route::post("view_all","App\Http\Controllers\PostController@addPost");
+Route::post("post","App\Http\Controllers\PostController@addPost");
 
 //view_allでのポスト、
 Route::get('view_all','App\Http\Controllers\PostController@view_all')->name('view_all');

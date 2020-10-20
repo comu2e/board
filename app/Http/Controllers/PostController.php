@@ -38,7 +38,8 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->user_id = Auth::user()->id;
         $post->save();
-        return view('view_all',['posts'=>$post]);
+        $posts = Post::all();
+        return view('view_all',['posts'=>$posts]);
 
 
     }
