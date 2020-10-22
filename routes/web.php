@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::resource('admin', 'App\Http\Controllers\AdminController');
-
+Route::get('','App\Http\Controllers\HomeController@index');

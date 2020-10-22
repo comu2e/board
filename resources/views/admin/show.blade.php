@@ -27,7 +27,7 @@
         <div class="card text-center"style="width: 18rem;">
             <h5 class="card-header">記事</h5>
             <div class="card-body">
-                <h5 class="card-title">{{$post["title"]}}</h5>
+                <h5 class="card-title">{{$post->title}}</h5>
                 {{--        編集フォーム--}}
                 <form action="/admin/{{ $post->id }}" method="POST">
                     @csrf
