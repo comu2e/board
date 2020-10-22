@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostInputPost;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -35,12 +36,12 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostInputPost $request)
     {
         $post = new Post;
         $post ->content = $request->content;
         $post ->title = $request->title;
-
+        $post->user_id = Auth::id();
         $post->save();
         return redirect()->route('admin.index');    }
 
@@ -73,7 +74,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostInputPost $request, $id)
     {
         //
         $post = \App\Models\Post::find($id);

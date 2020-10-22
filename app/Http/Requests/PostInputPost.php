@@ -25,7 +25,6 @@ class PostInputPost extends FormRequest
     {
         return [
             //
-            'title' => ['required'],
             'content' => ['max:140'],
         ];
     }
@@ -33,7 +32,6 @@ class PostInputPost extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'タイトルを入力してください',
             'content.max' => 'コンテンツは140字以下です',
 
         ];
