@@ -28,7 +28,9 @@
                     {{--    編集確定用--}}
                     <button type="button" class="btn btn-danger" >
                         {{--       削除用--}}
-                        <a href="http://localhost:8000/delete/{{$post["id"]}}">Delete</a></button>
+{{--                        --}}
+{{--                        --}}
+                        <a href="{{route('delete',['id'=>$post['id']])}}">Delete</a></button>
 
                 </form>
 

@@ -14,7 +14,7 @@
 
 
 @section('content')
-    <form method="post"  enctype="multipart/form-data">
+    <form method="post">
         @csrf
         <div class="form">
             <div class="form-title">
