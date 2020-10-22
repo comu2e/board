@@ -51,8 +51,8 @@
                         @else
                             <li class="nav-item dropdown">
 
-                                <a href="{{route('create')}}">投稿する</a>
-                                <a href="{{route('index')}}">みんなの投稿</a>
+{{--                                <a href="{{route('create')}}">投稿する</a>--}}
+{{--                                <a href="{{route('index')}}">みんなの投稿</a>--}}
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -65,7 +65,6 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
                                     </form>
                                 </div>
                             </li>
