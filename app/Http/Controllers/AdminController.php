@@ -25,6 +25,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('admin.create');
     }
 
     /**
@@ -35,8 +36,12 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $post = new Post;
+        $post ->content = $request->content;
+        $post ->title = $request->title;
+
+        $post->save();
+        return redirect()->route('admin.index');    }
 
     /**
      * Display the specified resource.
@@ -46,8 +51,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $post = Post::find($id);
+        return view('admin.show', compact('post'));    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,8 +62,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $post = \App\Models\Post::find($id);
+        return view('admin.edit', compact('post'));    }
 
     /**
      * Update the specified resource in storage.
@@ -70,6 +75,10 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = \App\Models\Post::find($id);
+        $post->content = $request->content;
+        $post->save();
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -80,6 +89,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $post = Post::find($id);
+        $post ->delete();
+        return redirect()->route('admin.index');    }
 }

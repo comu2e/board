@@ -2,12 +2,12 @@
 {{--section--}}
 @section('post_content')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('index') }}">{{ __('みんなの投稿') }}</a>
+        <a class="nav-link" href="{{ route('admin.index') }}">{{ __('みんなの投稿') }}</a>
     </li>
 @endsection
 @section('index')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('post') }}">{{ __('投稿する') }}</a>
+        <a class="nav-link" href="{{ route('admin.create') }}">{{ __('投稿する') }}</a>
     </li>
 @endsection
 {{--ここまでまとめて使えそう--}}
@@ -19,18 +19,22 @@
             <div class="card-body">
                 <h5 class="card-title">{{$post["title"]}}</h5>
                 {{--        編集フォーム--}}
-                <form method="POST">
+                <form action="/admin/{{ $post->id }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <textarea name="content">
                     {{$post["content"]}}
                     </textarea>
                     <input class="btn btn-primary" type="submit"value="Update">
-                    {{--    編集確定用--}}
-                    <button type="button" class="btn btn-danger" >
-                        {{--       削除用--}}
-{{--                        --}}
-{{--                        --}}
-                        <a href="{{route('delete',['id'=>$post['id']])}}">Delete</a></button>
+
+
+                <form action="{{route('admin.destroy',$post->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-danger">
+                        Delete
+                    </button>
 
                 </form>
 

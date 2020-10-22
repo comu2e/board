@@ -3,18 +3,18 @@
 
 @section('post_content')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('index') }}">{{ __('みんなの投稿') }}</a>
+        <a class="nav-link" href="{{ route('admin.index') }}">{{ __('みんなの投稿') }}</a>
     </li>
 @endsection
 @section('index')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('create') }}">{{ __('投稿する') }}</a>
+        <a class="nav-link" href="{{ route('admin.create') }}">{{ __('投稿する') }}</a>
     </li>
 @endsection
 
 
 @section('content')
-    <form method="post">
+    <form method="post" action="{{route('admin.store')}}">
         @csrf
         <div class="form">
             <div class="form-title">
