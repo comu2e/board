@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 class PostController extends Controller
 {
+//    public function index(){
+//        $posts = Post::all();
+//        return view("post");
+//    }
+//     public function cretePost(){
+//         $posts = Post::all();
+//         return view("post");
+//    }
+
     public function index(){
         $posts = Post::all();
-        return view("post");
-    }
-
-    public function view_all(){
-        $posts = Post::all();
-        return view("view_all",['posts'=>$posts]);
+        return view("admin.index",['posts'=>$posts]);
     }
 
     public function detailView($id){
@@ -29,9 +33,9 @@ class PostController extends Controller
             'content'=>$content,
             'id'=>$id
         ];
-        return view('detail',["post"=>$data]);
+        return view('admin.detail',["post"=>$data]);
     }
-    public function addPost(Request $request){
+    public function create(Request $request){
         $post = new Post();
         $post->id = $request->id;
         $post->title = $request->title;
@@ -39,8 +43,7 @@ class PostController extends Controller
         $post->user_id = Auth::user()->id;
         $post->save();
         $posts = Post::all();
-        return view('view_all',['posts'=>$posts]);
-
+        return view('admin.create');
 
     }
 //記事削除ボタン用
@@ -49,7 +52,7 @@ class PostController extends Controller
         DB::table('posts')->where('id',$id)->delete();
         $posts = Post::all();
 
-        return view("view_all",["posts"=>$posts]);
+        return view("admin.index",["posts"=>$posts]);
     }
 
     public function editPost(Request $request)
@@ -57,7 +60,7 @@ class PostController extends Controller
         $edit_article = DB::table('posts')->where('id',$request->id);
         $edit_article ->update(['content' => $request->content]);
         $posts = Post::all();
-        return view('view_all',['posts'=>$posts]);
+        return view('admin.index',['posts'=>$posts]);
     }
 
 

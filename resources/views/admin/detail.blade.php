@@ -2,10 +2,10 @@
 {{--section--}}
 @section('post_content')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('view_all') }}">{{ __('みんなの投稿') }}</a>
+        <a class="nav-link" href="{{ route('index') }}">{{ __('みんなの投稿') }}</a>
     </li>
 @endsection
-@section('view_all')
+@section('index')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('post') }}">{{ __('投稿する') }}</a>
     </li>

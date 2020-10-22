@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('','App\Http\Controllers\HomeController@index');
 
-Route::get('post','App\Http\Controllers\PostController@index')->name('post');
-Route::post("post","App\Http\Controllers\PostController@addPost");
+Route::get('/create','App\Http\Controllers\PostController@index')->name('create');
+Route::post("/create","App\Http\Controllers\PostController@create");
 
-//view_allでのポスト、
-Route::get('view_all','App\Http\Controllers\PostController@view_all')->name('view_all');
+//indexでのポスト、
+Route::get('index','App\Http\Controllers\PostController@index')->name('index');
 
 //detailの編集　削除
 //詳細の表示
