@@ -14,6 +14,16 @@
 
 @section('content')
     <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
         <div class="card text-center"style="width: 18rem;">
             <h5 class="card-header">記事</h5>
             <div class="card-body">
@@ -26,6 +36,7 @@
                     {{$post["content"]}}
                     </textarea>
                     <input class="btn btn-primary" type="submit"value="Update">
+                </form>
 
 
                 <form action="{{route('admin.destroy',$post->id) }}" method="POST">
