@@ -9,9 +9,9 @@ class Like extends Model
 {
     protected $fillable = ['post_id','user_id'];
 
-    public function reply()
+    public function post()
     {
-        return $this->belongsTo(Reply::class);
+        return $this->belongsTo(post::class);
     }
 
     public function user()
