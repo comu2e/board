@@ -17,5 +17,5 @@ Auth::routes();
 
 Route::resource('admin', 'App\Http\Controllers\AdminController');
 Route::get('','App\Http\Controllers\HomeController@index');
-Route::get('/reply/like/{id}', 'App\Http\Controllers\PostController@like')->name('post.like');
-Route::get('/reply/unlike/{id}', 'App\Http\Controllers\PostController@unlike')->name('post.unlike');
+Route::get('/post/like/{id}', 'App\Http\Controllers\PostController@like')->name('post.like');
+Route::get('/post/unlike/{id}', 'App\Http\Controllers\PostController@unlike')->name('post.unlike');

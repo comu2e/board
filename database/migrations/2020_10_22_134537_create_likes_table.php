@@ -17,6 +17,16 @@ class CreateLikesTable extends Migration
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+//           https://qiita.com/dai_designing/items/67a48e31d50899c6543f
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade'); // userが削除されたとき、それに関連するlikeも一気に削除される
+
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts')
+                ->onDelete('cascade'); // postが削除されたとき、それに関連するlikeも一気に削除される
         });
     }
 }
